@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head>
+    <meta charset="UTF-8">    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+  <title>Chá do Matteo</title>
+  <link rel="icon" type="image/png" href="gift.png">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<body>
+    <div class="container">        
+  <img src="logo.png" alt="Logo do Chá de Bebê" class="logo">
+  <img src="foto-mensagem.jpeg" alt="Imagem do Chá de Bebê" class="imagem-cha">
+  <h1 class="mensagem" id="mensagem-typing">Agradecemos a presença de todos neste momento especial! <br> Amamos a sua presença <br> Preparamos uma surpresa, clique no presente abaixo... </h1>
+  
+  
+  <div class="gif-container">
+      <button id="openModal" style="background: none; border: none; padding: 0; cursor: pointer;">
+        <img src="gift.gif" alt="GIF Animado" class="gif-animado" id="gifAnimado">
+      </button>
+    </div>
+    </div>
+
+    <!-- Modal -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span id="closeModal">&times;</span>
+      
+
+      <!-- Caixa de presente animada estilizada -->
+      <div class="present-surprise" id="presentSurprise">
+        <img src="gift.png" alt="Presente" class="modal-gift-img" id="modalGiftImg">
+        <div id="confetti"></div>
+      </div>
+      <div id="guestPhoto" class="guest-photo hidden">
+        <img id="photo" src="" alt="Foto personalizada">
+        <button id="downloadPhoto" class="download-btn">Baixar foto</button>
+      </div>
+    </div>
+  </div>
+
+    <!-- Importação correta da biblioteca AOS -->
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        AOS.init({ duration: 900, once: true });
+      });
+    </script>
+    <audio id="bgMusic" src="som.mpeg" autoplay loop preload="auto" style="display:none"></audio>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        var audio = document.getElementById('bgMusic');
+        audio.volume = 0.25;
+        function playMusic() {
+          audio.play();
+          document.removeEventListener('click', playMusic);
+          document.removeEventListener('touchstart', playMusic);
+        }
+        document.addEventListener('click', playMusic);
+        document.addEventListener('touchstart', playMusic);
+      });
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
