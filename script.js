@@ -1,63 +1,56 @@
-// Efeito de typing para a mensagem principal, inicia após logo e imagem carregarem
+// Efeito de fade-in sequencial para cada frase da mensagem principal
 document.addEventListener('DOMContentLoaded', function() {
   const msg = document.getElementById('mensagem-typing');
   const gifContainer = document.querySelector('.gif-container');
   const logo = document.querySelector('.logo');
   const imagemCha = document.querySelector('.imagem-cha');
   if (msg && gifContainer && logo && imagemCha) {
-    // Salva o texto original e prepara para o efeito typing
-    const texto = msg.textContent;
-    msg.textContent = '';
-    msg.style.opacity = 0;
+    const frases = msg.querySelectorAll('.frase');
     gifContainer.style.opacity = 0;
-    let typingStarted = false;
     let ready = 0;
 
-    // Função principal do efeito typing
-    function type() {
-      msg.style.opacity = 1;
+    function fadeInFrases() {
       let i = 0;
-      function typingStep() {
-        if (i <= texto.length) {
-          msg.textContent = texto.slice(0, i);
+      function showNext() {
+        if (i < frases.length) {
+          frases[i].style.opacity = 1;
           i++;
-          setTimeout(typingStep, 38);
+          setTimeout(showNext, 2000);
         } else {
-          // Após typing, exibe o botão do gif com delay de 4s
-          setTimeout(() => {
-            gifContainer.style.transition = 'opacity 0.7s';
-            gifContainer.style.opacity = 1;
-          }, 4000);
+          gifContainer.style.transition = 'opacity 0.7s';
+          gifContainer.style.opacity = 1;
         }
       }
-      typingStep();
+      showNext();
     }
 
-    // Verifica se o elemento está visível na tela
+    // Aguarda a animação da imagem principal antes de iniciar o fade-in das frases
+    function startFadeInAfterImg() {
+      setTimeout(fadeInFrases, 2200); // tempo igual ao da animação da imagem-cha no CSS
+    }
+
     function isInViewport(el) {
       const rect = el.getBoundingClientRect();
       return rect.top < window.innerHeight && rect.bottom > 0;
     }
 
-    // Dispara o efeito typing quando todos elementos estiverem prontos
-    function checkTyping() {
-      if (!typingStarted && isInViewport(msg) && ready === 2) {
-        typingStarted = true;
-        setTimeout(type, 2000); // atraso de 2 segundos
-        window.removeEventListener('scroll', checkTyping);
+    function checkFadeIn() {
+      if (isInViewport(msg) && ready === 2) {
+        startFadeInAfterImg();
+        window.removeEventListener('scroll', checkFadeIn);
       }
     }
 
-    window.addEventListener('scroll', checkTyping);
+    window.addEventListener('scroll', checkFadeIn);
     logo.addEventListener('load', loaded);
     imagemCha.addEventListener('load', loaded);
     function loaded() {
       ready++;
-      checkTyping();
+      checkFadeIn();
     }
     if (logo.complete) { ready++; }
     if (imagemCha.complete) { ready++; }
-    checkTyping();
+    checkFadeIn();
   }
 });
 // Elementos do modal de presente
