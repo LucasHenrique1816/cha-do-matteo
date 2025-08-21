@@ -1,4 +1,4 @@
-/* Presente do modal usando gift.png */
+/* Imagem do presente no modal */
 .modal-gift-img {
     display: block;
     margin: 0 auto;
@@ -39,7 +39,7 @@
         color: inherit !important;
     }
 }
-/* Caixa de presente animada e surpreendente */
+/* Caixa de presente animada */
 .present-surprise {
     position: relative;
     width: 180px;
@@ -121,7 +121,7 @@
     z-index: 3;
 }
 
-/* Laço 3D */
+/* Laço do presente */
 .bow {
     position: absolute;
     top: 10px;
@@ -160,7 +160,7 @@
     transform: translateX(-50%);
     box-shadow: 0 2px 8px rgba(0,0,0,0.10);
 }
-/* Caixa de presente animada no modal */
+/* Caixa de presente no modal */
 .present-modal {
     display: flex;
     flex-direction: column;
@@ -246,7 +246,7 @@
     background: #0e421f;
     color: #fff;
 }
-/* Confeitos festivos (confetti) */
+/* Confeitos festivos animados */
 #confetti {
     position: absolute;
     left: 0; top: 0;
@@ -275,7 +275,7 @@ body {
     padding: 0;
     background-image: url(fundo\ matteo.png);
     background-size: cover;
-    background-position: center;
+        /* font-family padrão do site, sem Delius Swash Caps */
     background-repeat: no-repeat;
     min-height: 100vh;
     width: 100%;
@@ -302,7 +302,7 @@ body {
     box-sizing: border-box;
 }
 
-/* Estilos para logo */
+/* Logo principal */
 
 .logo {
     display: block;
@@ -322,13 +322,13 @@ body {
     to { opacity: 1; transform: translateY(0) scale(1); }
 }
 
-/* Estilos para imagem principal */
+/* Imagem principal */
 
 .imagem-cha {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    max-width: 28vw;
+    max-width: 35vw;
     min-width: 140px;
     height: auto;
     margin-bottom: 2.5vw;
@@ -343,24 +343,27 @@ body {
     to { opacity: 1; transform: scale(1); }
 }
 
-/* Estilos para mensagens */
+/* Mensagem com efeito typing */
 .mensagem {
     text-align: center;
     margin: 10px 0;
     padding: 0 20px;
     word-wrap: break-word;
     max-width: 100%;
-    font-family: 'Pacifico', cursive;
+    font-family: 'Delius Swash Caps', cursive;
     color: #5d7152;
     opacity: 0;
-    animation: fadeInMsg 0.8s 2.1s ease forwards;
     min-height: 2.2em;
     letter-spacing: 0.01em;
+    transition: opacity 1.2s cubic-bezier(.68,-0.55,.27,1.55);
 }
+/* Import da fonte Delius Swash Caps do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Delius+Swash+Caps:400&display=swap');
 
 @keyframes fadeInMsg {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    0% { opacity: 0; }
+    60% { opacity: 0.7; }
+    100% { opacity: 1; }
 }
 
 .gif-container {
@@ -371,6 +374,7 @@ body {
     opacity: 0;
     transform: translateY(30px);
     animation: fadeInGif 1s 2.5s cubic-bezier(.68,-0.55,.27,1.55) forwards;
+    animation-delay: 10s !important;
 }
 
 @keyframes fadeInGif {
@@ -387,7 +391,7 @@ body {
     transition: all 0.3s ease;
 }
 
-/* Modal */
+/* Modal de presente */
 .modal {
   display: none;
   position: fixed;
@@ -415,7 +419,7 @@ body {
   cursor: pointer;
 }
 
-/* Foto personalizada */
+/* Foto do convidado */
 .guest-photo img {
   width: 100%;
   border-radius: 15px;
@@ -426,7 +430,7 @@ body {
   display: none;
 }
 
-/* MEDIA QUERIES PARA RESPONSIVIDADE */
+/* Media queries para responsividade */
 
 /* Tablets - Telas médias (768px - 1024px) */
 /* Smartphones - Telas pequenas (até 768px) */
@@ -456,13 +460,14 @@ body {
     }
     
     .mensagem {
-        font-size: 0.9em;
+        font-size: 1.5em;
         padding: 0 10px;
         margin: 8px 0;
     }
     
     .gif-container {
         margin-top: 20px;
+        animation-delay: 10s !important;
     }
 }
 
@@ -473,30 +478,29 @@ body {
         margin: 5px;
         max-width: calc(100% - 10px);
     }
-    
     .logo {
         max-width: 60%;
         margin-bottom: 10px;
+        animation-delay: 2.3s !important;
     }
-    
     .imagem-cha {
         max-width: 80%;
         margin-bottom: 15px;
+        animation-delay: 2.3s !important;
     }
-    
     .gif-animado {
         max-width: 150px;
     }
-    
     .mensagem {
-        font-size: 0.85em;
+        font-size: 1.5em;
         padding: 0 8px;
         margin: 6px 0;
         line-height: 1.4;
+        animation-delay: 2.3s !important;
     }
-    
     .gif-container {
         margin-top: 15px;
+        animation-delay: 10s !important;
     }
 }
 
@@ -521,11 +525,17 @@ body {
     }
     
     .mensagem {
-        font-size: 0.8em;
+        font-size: 1.5em;
         padding: 0 5px;
         margin: 5px 0;
         line-height: 1.3;
     }
+
+    .gif-container {
+        
+        animation-delay: 10s !important;
+    }
 }
+
 
 
