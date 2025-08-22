@@ -120,7 +120,7 @@ const gift = params.get("gift");
 // Fotos dos convidados (apenas uma foto por presente)
 const fotos = {
   agdaamauri: "fotos/AgdaAmauri.jpeg",
-  anaicaroldaiane: "fotos/AnaICarolDaiane.jpeg",
+  anaicaroldaiane: "fotos/AnaiCarolDaiane.jpeg",
   anaiedgar: "fotos/AnaiEdgar.jpeg",
   biavini: "fotos/BiaVini.jpeg",
   bisa: "fotos/Bisa.jpeg",
