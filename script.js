@@ -125,6 +125,7 @@ const fotos = {
   biavini: "fotos/BiaVini.jpeg",
   bisa: "fotos/Bisa.jpeg",
   bruno: "fotos/Bruno.jpeg",
+  camila: "fotos/Camila.jpeg",
   camilahenrique: "fotos/CamilaHenrique.jpeg",
   carol: "fotos/Carol.jpeg",
   caroleloa: "fotos/CarolEloa.jpeg",
@@ -137,6 +138,7 @@ const fotos = {
   gustavofernanda: "fotos/GustavoFernanda.jpeg",
   janiacarlos: "fotos/JaniaCarlos.jpeg",
   jo: "fotos/Jo.jpeg",
+  juniorkerolayne: "fotos/JuniorKerolayne.jpeg",
   kauepolyana: "fotos/KauePolyana.jpeg",
   lalaca: "fotos/Lalaca.jpeg",
   marciamatheus: "fotos/MarciaMatheus.jpeg",
@@ -146,7 +148,7 @@ const fotos = {
   raphasuellen: "fotos/RaphaSuellen.jpeg",
   rayssajoao: "fotos/RayssaJoao.jpeg",
   ronyerika: "fotos/RonyErika.jpeg",
-  ruanisabela: "fotos/Ruanisabela.jpeg",
+  ruanisabela: "fotos/RuanIsabela.jpeg",
   vinijots: "fotos/ViniJots.jpeg"
 
 };
